@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'demo_app',
       home: MyHomePage(title: 'demo_app'),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -30,57 +31,49 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         height: 300,
-        width: 1000,
-        color: Colors.black12,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-        textDirection: TextDirection.rtl,
           children: [
-            Container(
-              color: Colors.red,
-              height: 100,
-              width: 100,
-              child: const Text(
-                '1',
-                style: TextStyle(fontSize: 50),
+            const CircleAvatar(
+              backgroundImage:
+                  AssetImage('images/prince-akachi-i2hoD-C2RUA-unsplash.jpg'),
+              radius: 50,
+            ),
+            const SizedBox(width: 30),
+            const Text(
+              'Jina Name',
+              style: TextStyle(
+                fontSize: 25,
+                color: Colors.black54,
               ),
             ),
-            Container(
-              color: Colors.blue,
-              height: 100,
-              width: 100,
-              child: const Text(
-                '2',
-                style: TextStyle(fontSize: 50),
+            const SizedBox(width: 30),
+            ElevatedButton(
+              style: ButtonStyle(
+                shape: MaterialStatePropertyAll(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                ),
               ),
-            ),
-            Container(
-              color: Colors.green,
-              height: 100,
-              width: 100,
-              child: const Text(
-                '3',
-                style: TextStyle(fontSize: 50),
-              ),
-            ),
-            Container(
-              color: Colors.yellow,
-              height: 100,
-              width: 100,
-              child: const Text(
-                '4',
-                style: TextStyle(fontSize: 50),
-              ),
-            ),
-            Container(
-              color: Colors.purple,
-              height: 100,
-              width: 100,
-              child: const Text(
-                '5',
-                style: TextStyle(fontSize: 50),
+              onPressed: () {},
+              child: const SizedBox(
+                width: 80,
+                height: 30,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(
+                      'Call',
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                    Icon(Icons.call),
+                  ],
+                ),
               ),
             ),
           ],
